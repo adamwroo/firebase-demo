@@ -24,6 +24,7 @@
                 // ...
             });
     }
+
     const logout = () => {
         signOut(auth).then(() => {
             // Sign-out successful.
