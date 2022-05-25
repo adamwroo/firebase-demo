@@ -1,35 +1,44 @@
 <script>
 	import Login from './components/Login.svelte';
 	import Chat from './components/Chat.svelte';
-
-	export let name;
+	import NewMessage from './components/NewMessage.svelte';
 </script>
 
-<main>
-	<h1>Hello {name}!</h1>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
+<header>
 	<Login />
+</header>
+<main>
 	<Chat />
 </main>
+<footer>
+	<NewMessage />
+</footer>
 
 <style>
+	:global(body) {
+		display: flex;
+		flex-direction: column;
+	}
+
+	header {
+		position: sticky;
+		top: 0px;
+		align-self: end;
+	}
+
 	main {
+		flex-grow: 1;
 		text-align: center;
 		padding: 1em;
-		max-width: 240px;
-		margin: 0 auto;
+		overflow-y: scroll;
+		align-self: center;
+	}
+	
+	:global(main > div) {
+		width: min(40em, 90vw);
 	}
 
-	h1 {
-		color: #ff3e00;
-		text-transform: uppercase;
-		font-size: 4em;
-		font-weight: 100;
-	}
-
-	@media (min-width: 640px) {
-		main {
-			max-width: none;
-		}
+	footer {
+		align-self: center;
 	}
 </style>
