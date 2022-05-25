@@ -12,6 +12,7 @@
 
         await addDoc(collection(db, collectionName), {
             uid: $user?.uid ?? '',
+            user: $user?.displayName ?? '',
             timestamp : serverTimestamp(),
             text: newMessageCopy
         });
